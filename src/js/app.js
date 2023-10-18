@@ -32,22 +32,20 @@ function render(variables = {}) {
   if (variables.city == "Miami") variables.country = "USA";
   if (variables.city == "Caracas") variables.country = "Venezuela";
   if (variables.city == "Toronto") variables.country = "Canada";
-  if (variables.country == "Germany") variables.city = "Munich";
-  if (variables.country == "USA") variables.city = "Miami";
-  if (variables.country == "Venezuela") variables.city = "Caracas";
-  if (variables.country == "Canada") variables.city = "Toronto";
+ 
+  
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1 >${variables.name || ""} ${variables.lastName || " "}</h1>
           <h2>${variables.role || "Introduzca su cargo"}</h2>
-          <h3> ${variables.city || "Ciudad"} ${variables.country || "País"}</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h3> Ciudad: ${variables.city || " "} </br> País: ${variables.country || " "}</h3>
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
